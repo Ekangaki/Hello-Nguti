@@ -1,7 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-  <modelVersion>4.0.0</modelVersion> 
+  <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.example.maven-project</groupId>
   <artifactId>maven-project</artifactId>
@@ -12,8 +13,10 @@
   <url>http://www.example.com</url>
 
   <properties>
-    <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
   <modules>
@@ -31,21 +34,27 @@
 
   <build>
     <plugins>
+
+      <!-- Updated Compiler Plugin -->
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
         <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
-                    <plugin>
-                   <groupId>org.apache.maven.plugins</groupId>
-                   <artifactId>maven-war-plugin</artifactId>
-                   <version>3.3.2</version>
-                   <configuration>
-                       <failOnMissingWebXml>false</failOnMissingWebXml>
-                   </configuration>
-              </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+
       <plugin>
         <artifactId>maven-release-plugin</artifactId>
         <configuration>
@@ -57,25 +66,11 @@
         <artifactId>maven-site-plugin</artifactId>
         <configuration>
           <reportPlugins>
-            <plugin>
-              <artifactId>maven-checkstyle-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-              <artifactId>maven-jxr-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-              <artifactId>maven-javadoc-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-              <artifactId>maven-pmd-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-              <artifactId>maven-surefire-report-plugin</artifactId>
-            </plugin>
+            <plugin><artifactId>maven-checkstyle-plugin</artifactId></plugin>
+            <plugin><artifactId>maven-jxr-plugin</artifactId></plugin>
+            <plugin><artifactId>maven-javadoc-plugin</artifactId></plugin>
+            <plugin><artifactId>maven-pmd-plugin</artifactId></plugin>
+            <plugin><artifactId>maven-surefire-report-plugin</artifactId></plugin>
 
             <plugin>
               <groupId>org.codehaus.mojo</groupId>
@@ -89,18 +84,22 @@
           </reportPlugins>
         </configuration>
       </plugin>
+
     </plugins>
 
     <pluginManagement>
       <plugins>
+
+        <!-- Updated Compiler Plugin version -->
         <plugin>
-          <artifactId>maven-checkstyle-plugin</artifactId>
-          <version>2.8</version>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.1</version>
         </plugin>
 
         <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>2.3.2</version>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>2.8</version>
         </plugin>
 
         <plugin>
@@ -165,12 +164,14 @@
           <artifactId>jetty-maven-plugin</artifactId>
           <version>8.0.0.M1</version>
         </plugin>
+
       </plugins>
     </pluginManagement>
   </build>
 
   <dependencyManagement>
     <dependencies>
+
       <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>servlet-api</artifactId>
@@ -210,6 +211,7 @@
         <version>1.8.5</version>
         <scope>test</scope>
       </dependency>
+
     </dependencies>
   </dependencyManagement>
 
@@ -225,3 +227,4 @@
   </prerequisites>
 
 </project>
+
